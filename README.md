@@ -46,52 +46,6 @@ cp .env.example .env.local
 
 ## 4. Install & run
 
-### Windows quick-start (PowerShell)
-
-1. **Download the repository**
-   - On GitHub choose **Code → Download ZIP**.
-   - Open the ZIP in File Explorer and click **Extract all…**. Pick a location such as `C:\Users\YOURNAME\Projects\Loaded-MVP`.
-   - You must extract the archive first—PowerShell cannot `cd` into a `.zip` file.
-
-2. **Open PowerShell in the extracted folder**
-   - In File Explorer, right-click the extracted `Loaded-MVP` folder and choose **Open in Terminal** (or copy the path from the address bar).
-   - In PowerShell run:
-     ```powershell
-     cd "C:\Users\YOURNAME\Projects\Loaded-MVP"
-     ```
-     Replace the path with wherever you extracted the folder. The quotes let Windows handle spaces in the path.
-
-3. **Install Node.js if you have not already**
-   - Download from [nodejs.org](https://nodejs.org) or, if Chocolatey is installed, run `choco install nodejs-lts` from an elevated PowerShell window.
-   - Restart PowerShell and confirm with `node --version` (should be `18.x` or newer) and `npm --version`.
-
-4. **Set up environment variables**
-   ```powershell
-   copy .env.example .env.local
-   notepad .env.local
-   ```
-   Paste the Supabase and optional Stripe secrets into `.env.local`. Save the file and close Notepad.
-
-5. **Install dependencies and start the dev server**
-   ```powershell
-   npm install
-   npm run dev
-   ```
-   When you see `ready - started server on 0.0.0.0:3000`, open <http://localhost:3000> in your browser.
-
-6. **Admin console on Windows**
-   - In the same PowerShell session export the shared secret values before navigating to `/admin`:
-     ```powershell
-     $env:SESSION_SECRET = "your-long-random-secret"
-     $env:NEXT_PUBLIC_ADMIN_SECRET = "your-long-random-secret"
-     ```
-   - Use the same value in both variables and in `.env.local`. Keep the PowerShell window open while testing.
-
-7. **Stop the dev server**
-   - Press `Ctrl + C` in PowerShell. Confirm with `Y` if prompted.
-
-> 💡 **Tip:** If PowerShell ever says a path is not recognized, double-check that you extracted the ZIP and that the path you passed to `cd` matches the folder location exactly.
-
 ```bash
 npm install
 npm run dev
