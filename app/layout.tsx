@@ -4,6 +4,8 @@ import { ReactNode } from "react";
 import { Inter, Poppins } from "next/font/google";
 import { Providers } from "../components/layout/providers";
 import { BottomNav } from "../components/layout/bottom-nav";
+import { SidebarNav } from "../components/layout/sidebar-nav";
+import { TopHeader } from "../components/layout/top-header";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-poppins" });
@@ -24,19 +26,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-brand-cream text-brand-dark">
         <Providers>
-          <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 pb-24 pt-6 sm:px-6 lg:px-8">
-            <header className="flex flex-col gap-4 pb-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.2em] text-brand-red">Loaded</p>
-                  <h1 className="font-display text-2xl font-semibold text-brand-dark">Built for craveable speed.</h1>
-                </div>
-                <div className="hidden rounded-full border border-brand-red/10 bg-white/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-brand-dark shadow-sm shadow-brand-red/10 backdrop-blur sm:block">
-                  MVP Preview
-                </div>
-              </div>
-            </header>
-            <main className="flex-1 pb-10">{children}</main>
+          <div className="flex min-h-screen bg-[radial-gradient(circle_at_top,#fff4e5_0%,#ffe1c4_45%,#fbd7c0_75%,#f4c3b3_100%)]">
+            <SidebarNav />
+            <div className="flex min-h-screen w-full flex-col">
+              <TopHeader />
+              <main className="flex-1 overflow-y-auto px-4 py-8 md:px-8 xl:px-12">
+                <div className="mx-auto w-full max-w-[1280px] space-y-8">{children}</div>
+              </main>
+            </div>
           </div>
           <BottomNav />
         </Providers>

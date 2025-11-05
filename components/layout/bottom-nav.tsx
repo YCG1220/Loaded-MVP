@@ -17,7 +17,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-4 left-1/2 z-50 w-[min(420px,calc(100%-2rem))] -translate-x-1/2 rounded-full border border-white/40 bg-white/90 p-2 shadow-2xl shadow-brand-red/10 backdrop-blur">
+    <nav className="fixed bottom-4 left-1/2 z-50 w-[min(420px,calc(100%-2rem))] -translate-x-1/2 rounded-full border border-white/40 bg-white/95 p-2 shadow-2xl shadow-brand-red/10 backdrop-blur lg:hidden">
       <ul className="grid grid-cols-5 gap-1">
         {links.map((link) => {
           const Icon = link.icon;
