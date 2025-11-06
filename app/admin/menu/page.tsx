@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 "use client";
 
+=======
+>>>>>>> origin/main
 import { DataTable } from "../../../components/admin/data-table";
 import { MenuForm } from "../../../components/admin/menu-form";
 import { CategoryForm } from "../../../components/admin/category-form";

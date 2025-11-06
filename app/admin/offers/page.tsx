@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 "use client";
 
+=======
+>>>>>>> origin/main
 import { DataTable } from "../../../components/admin/data-table";
 import { OfferForm } from "../../../components/admin/offer-form";
 

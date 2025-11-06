@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 "use client";
 
+=======
+>>>>>>> origin/main
 import { DataTable } from "../../../components/admin/data-table";
 import { ModifierGroupForm } from "../../../components/admin/modifier-group-form";
 import { ModifierForm } from "../../../components/admin/modifier-form";
