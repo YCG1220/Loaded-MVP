@@ -48,9 +48,9 @@ export function MenuModifierDrawer({ item, onAdd, children }: MenuModifierDrawer
 
   const modifierGroups = useMemo(() => {
     return [...(item.modifierGroups ?? [])].sort((a, b) => {
-      const sequenceA = a.sequence ?? 0;
-      const sequenceB = b.sequence ?? 0;
-      if (sequenceA !== sequenceB) return sequenceA - sequenceB;
+      const stepA = a.step ?? 0;
+      const stepB = b.step ?? 0;
+      if (stepA !== stepB) return stepA - stepB;
       return a.name.localeCompare(b.name);
     });
   }, [item.modifierGroups]);

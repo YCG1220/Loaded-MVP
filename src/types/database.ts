@@ -98,6 +98,7 @@ export interface Database {
           min_select: number | null;
           max_select: number | null;
           is_required: boolean | null;
+          step: number | null;
           created_at: string | null;
           updated_at: string | null;
         };
@@ -108,6 +109,7 @@ export interface Database {
           min_select?: number | null;
           max_select?: number | null;
           is_required?: boolean | null;
+          step?: number | null;
           created_at?: string | null;
           updated_at?: string | null;
         };

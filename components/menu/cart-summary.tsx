@@ -92,9 +92,16 @@ export function CartSummary({ cart, lastAddedItem }: CartSummaryProps) {
             </div>
             {Object.values(cartItem.modifiers).flat().length > 0 && (
               <ul className="text-xs text-brand-dark/60">
-                {Object.entries(cartItem.modifiers).map(([groupId, selections]) => (
-                  <li key={groupId}>{selections.join(", ")}</li>
-                ))}
+                {Object.entries(cartItem.modifiers).map(([groupId, selections]) => {
+                  const group = cartItem.item.modifierGroups?.find((modifierGroup) => modifierGroup.id === groupId);
+                  const label = group?.name ?? "Custom";
+                  return (
+                    <li key={groupId} className="flex items-start gap-2">
+                      <span className="font-semibold uppercase tracking-[0.2em] text-brand-dark/40">{label}:</span>
+                      <span>{selections.join(", ")}</span>
+                    </li>
+                  );
+                })}
               </ul>
             )}
           </li>

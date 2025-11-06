@@ -26,7 +26,7 @@ function mapModifierGroup(row: any): ModifierGroup | null {
     maxSelect: row.max_select ?? 0,
     isRequired: row.is_required ?? false,
     options,
-    sequence: row.step ?? undefined,
+    step: row.step ?? undefined,
   };
 }
 
@@ -87,9 +87,9 @@ export async function fetchMenuCatalog(): Promise<MenuCatalog> {
           .map((relation: any) => mapModifierGroup(relation?.modifier_groups))
           .filter((group): group is ModifierGroup => Boolean(group))
           .sort((a, b) => {
-            const sequenceA = a.sequence ?? 0;
-            const sequenceB = b.sequence ?? 0;
-            if (sequenceA !== sequenceB) return sequenceA - sequenceB;
+            const stepA = a.step ?? 0;
+            const stepB = b.step ?? 0;
+            if (stepA !== stepB) return stepA - stepB;
             return a.name.localeCompare(b.name);
           })
       : [];

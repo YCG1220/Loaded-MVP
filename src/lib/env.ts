@@ -25,6 +25,9 @@ export function getEnv(): Env {
     console.error(result.error.flatten().fieldErrors);
     throw new Error("Missing or invalid environment variables. Check .env file.");
   }
-  cached = result.data;
+  cached = {
+    ...result.data,
+    NEXT_PUBLIC_ADMIN_SECRET: result.data.NEXT_PUBLIC_ADMIN_SECRET ?? result.data.SESSION_SECRET,
+  } as Env;
   return cached;
 }

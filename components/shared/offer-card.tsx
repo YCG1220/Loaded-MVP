@@ -39,13 +39,16 @@ export function OfferCard({ offer }: OfferCardProps) {
   const badge = useMemo(() => buildBadge(offer), [offer]);
   const expiryLabel = useMemo(() => buildExpiryLabel(offer), [offer]);
 
+  const canToggle = offer.isActive;
+
   return (
     <button
       type="button"
-      onClick={() => setIsActive((prev) => !prev)}
-      className={`group relative flex w-full flex-col gap-4 rounded-[28px] border bg-white/90 px-5 py-5 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-2xl ${
-        isActive ? "border-brand-red/40" : "border-brand-red/15"
-      }`}
+      onClick={() => canToggle && setIsActive((prev) => !prev)}
+      disabled={!canToggle}
+      className={`group relative flex w-full flex-col gap-4 rounded-[28px] border bg-white/90 px-5 py-5 text-left shadow-lg transition ${
+        isActive ? "border-brand-red/40 shadow-2xl" : "border-brand-red/15 hover:-translate-y-1 hover:shadow-2xl"
+      } ${canToggle ? "" : "opacity-60"}`}
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-4">

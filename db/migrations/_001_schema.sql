@@ -58,6 +58,7 @@ create table if not exists public.modifier_groups (
   min_select integer default 0,
   max_select integer default 1,
   is_required boolean default false,
+  step integer default 0,
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );
