@@ -1,5 +1,26 @@
+"use client";
+
 import Link from "next/link";
 import { ReactNode } from "react";
+import { usePathname } from "next/navigation";
+
+function AdminNavLink({ href, label }: { href: string; label: string }) {
+  const pathname = usePathname();
+  const isActive = pathname?.startsWith(href);
+
+  return (
+    <Link
+      href={href}
+      className={`block rounded-2xl px-4 py-3 text-sm font-semibold transition ${
+        isActive
+          ? "bg-brand-red text-white shadow-lg shadow-brand-red/40"
+          : "text-brand-dark/80 hover:bg-brand-red/10 hover:text-brand-red"
+      }`}
+    >
+      {label}
+    </Link>
+  );
+}
 
 const links = [
   { href: "/admin/menu", label: "Menu" },
@@ -8,6 +29,7 @@ const links = [
   { href: "/admin/rewards", label: "Rewards" },
   { href: "/admin/offers", label: "Offers" },
   { href: "/admin/orders", label: "Orders" },
+  { href: "/admin/db-backfill", label: "Stock backfill" },
 ];
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
@@ -17,13 +39,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-red">Admin Console</p>
         <nav className="mt-6 space-y-2">
           {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="block rounded-2xl px-4 py-3 text-sm font-semibold text-brand-dark/80 transition hover:bg-brand-red/10 hover:text-brand-red"
-            >
-              {link.label}
-            </Link>
+            <AdminNavLink key={link.href} href={link.href} label={link.label} />
           ))}
         </nav>
       </aside>

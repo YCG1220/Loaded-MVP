@@ -14,6 +14,7 @@ export interface ModifierGroup {
   maxSelect: number;
   isRequired: boolean;
   options: ModifierOption[];
+  step?: number;
 }
 
 export interface MenuItem {
