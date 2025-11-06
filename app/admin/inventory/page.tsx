@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+"use client";
+
+=======
+>>>>>>> origin/main
 import { DataTable } from "../../../components/admin/data-table";
 import { InventoryForm } from "../../../components/admin/inventory-form";
 

@@ -26,6 +26,10 @@ export interface MenuItem {
   calories?: number;
   categoryId: string;
   modifierGroups?: ModifierGroup[];
+<<<<<<< HEAD
+  sortOrder?: number;
+=======
+>>>>>>> origin/main
 }
 
 export interface Category {
@@ -33,4 +37,8 @@ export interface Category {
   name: string;
   description?: string;
   sortOrder: number;
+<<<<<<< HEAD
+  imageUrl?: string;
+=======
+>>>>>>> origin/main
 }

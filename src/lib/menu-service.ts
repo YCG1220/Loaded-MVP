@@ -39,7 +39,11 @@ export async function fetchMenuCatalog(): Promise<MenuCatalog> {
 
   const { data: categoryRows, error: categoryError } = await supabase
     .from("categories")
+<<<<<<< HEAD
+    .select("id, name, subtitle, image_url, sort_order")
+=======
     .select("id, name, subtitle, sort_order")
+>>>>>>> origin/main
     .order("sort_order", { ascending: true });
 
   if (categoryError) {
@@ -50,7 +54,11 @@ export async function fetchMenuCatalog(): Promise<MenuCatalog> {
   const { data: menuRows, error: menuError } = await supabase
     .from("menu_items")
     .select(
+<<<<<<< HEAD
+      `id, name, description, price, image_url, calories, category_id, sort_order,
+=======
       `id, name, description, price, image_url, calories, category_id,
+>>>>>>> origin/main
        menu_item_modifiers(
          modifier_groups(
            id, name, min_select, max_select, is_required, step,
@@ -59,6 +67,10 @@ export async function fetchMenuCatalog(): Promise<MenuCatalog> {
        )`
     )
     .eq("is_active", true)
+<<<<<<< HEAD
+    .order("sort_order", { ascending: true })
+=======
+>>>>>>> origin/main
     .order("name", { ascending: true });
 
   if (menuError) {
@@ -69,6 +81,10 @@ export async function fetchMenuCatalog(): Promise<MenuCatalog> {
         name: category.name,
         description: category.subtitle ?? undefined,
         sortOrder: category.sort_order ?? 0,
+<<<<<<< HEAD
+        imageUrl: category.image_url ?? undefined,
+=======
+>>>>>>> origin/main
       })),
       menuItems: [],
     };
@@ -79,6 +95,10 @@ export async function fetchMenuCatalog(): Promise<MenuCatalog> {
     name: category.name,
     description: category.subtitle ?? undefined,
     sortOrder: category.sort_order ?? 0,
+<<<<<<< HEAD
+    imageUrl: category.image_url ?? undefined,
+=======
+>>>>>>> origin/main
   }));
 
   const menuItems = (menuRows ?? []).map((item) => {
@@ -103,8 +123,23 @@ export async function fetchMenuCatalog(): Promise<MenuCatalog> {
       calories: item.calories ?? undefined,
       categoryId: item.category_id ?? "",
       modifierGroups,
+<<<<<<< HEAD
+      sortOrder: item.sort_order ?? undefined,
+    } satisfies MenuItem;
+  });
+
+  const sortedMenuItems = menuItems.sort((a, b) => {
+    const orderA = a.sortOrder ?? 0;
+    const orderB = b.sortOrder ?? 0;
+    if (orderA !== orderB) return orderA - orderB;
+    return a.name.localeCompare(b.name);
+  });
+
+  return { categories, menuItems: sortedMenuItems };
+=======
     } satisfies MenuItem;
   });
 
   return { categories, menuItems };
+>>>>>>> origin/main
 }

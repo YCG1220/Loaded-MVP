@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      // { protocol: "https", hostname: "YOURPROJECTREF.supabase.co" },
+    ],
+=======
 import { createSecureHeaders } from "next-secure-headers";
 
 const securityHeaders = createSecureHeaders({
@@ -30,6 +39,7 @@ const nextConfig = {
         headers: securityHeaders,
       },
     ];
+>>>>>>> origin/main
   },
 };
 
