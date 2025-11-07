@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background-color: theme('colors.brand.cream');
+}
+
+body {
+  font-family: theme('fontFamily.body');
+  background: radial-gradient(circle at top, rgba(255, 244, 229, 1) 0%, rgba(253, 228, 204, 1) 45%, rgba(250, 210, 193, 1) 70%, rgba(244, 195, 179, 1) 100%);
+  min-height: 100vh;
+  color: theme('colors.brand.dark');
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(26, 26, 26, 0.15);
+  border-radius: 9999px;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-brand-red px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg transition hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red;
+}
+
+.card {
+  @apply rounded-[32px] border border-brand-red/15 bg-white/85 p-8 shadow-xl shadow-brand-red/10 backdrop-blur;
+}
+
+.section-title {
+  @apply flex items-center gap-3 text-lg font-semibold uppercase tracking-[0.35em] text-brand-dark;
+}
